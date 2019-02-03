@@ -33,6 +33,11 @@ classes working with databases and with controllers should be covered by functio
 
 Demo online project http://tasklaravel.kl.com.ua
 
+### example UI
+![alt tag](https://github.com/OnePeople/tasklaravel/blob/master/home-page.jpg)
+![alt tag](https://github.com/OnePeople/tasklaravel/blob/master/demo-task.jpg)
+![alt tag](https://github.com/OnePeople/tasklaravel/blob/master/demo-user.jpg)
+
 ## In project use patterns
 - Factory for seeding
 - Repository for CRUD operation of models
