@@ -26,7 +26,6 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
@@ -81,7 +80,7 @@ class TaskController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int                      $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */

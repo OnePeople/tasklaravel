@@ -25,8 +25,6 @@ class UserController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
-     * @param
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */
@@ -37,7 +35,6 @@ class UserController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -48,7 +45,6 @@ class UserController extends Controller
 
     /**
      * Display the specified resource.
-     *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
