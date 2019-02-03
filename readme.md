@@ -1,6 +1,6 @@
 
 
-## About task application
+## About application
 Online application - System of task.
 
 ### Use case of application:
@@ -8,7 +8,7 @@ Online application - System of task.
 2. create, view, edit, delete users (fields name, email, password)
 3. create, view, edit, delete tasks,
 the task must contain data - subject, code, content, status, type, creator, performer, time of creation.
-4. all fields must be validation
+4. all input data must be validated
 5. tasks can have different statuses
 6. tasks must have an owner
 7. tasks must have a executor
@@ -24,9 +24,13 @@ classes working with databases and with controllers should be covered by functio
 1. create two database for application and unittest (data in .env file and in phpunit.xml)
 2. install application
 > composer install
+
 > composer dump-autoload
+
 > php artisan migrate
+
 > php artisan db:seed
+
 Demo online project http://tasklaravel.kl.com.ua
 
 ## In project use patterns
@@ -47,12 +51,14 @@ Demo online project http://tasklaravel.kl.com.ua
 - unit tests
 - functional test (via crawler)
 
-## Depences
- - php > 7.2
- - php intl, 
- - php mb_string
+## Depenses
+ - RDBMS - MYSQL
+ - php version > 7.2
+ - php extension intl 
+ - php extension mb_string
+ - php extension xdebug
  - vendors of laravel
- - bootstrap
+ - bootstrap library
  
 ## Testing application
 - run php cs:
@@ -60,10 +66,145 @@ Demo online project http://tasklaravel.kl.com.ua
 - run unittest and functional test:
   php -dxdebug.coverage_enable=1 /vendor/phpunit/phpunit/phpunit --coverage-clover coverage\task_laravel$tests.xml --configuration phpunit.xml task-laravel\tests --teamcity
   
- ### Testing results 
-testcoverage : 92%
-max Cyclomatic Complexity : 8 (repository)
-max CRAP : 2 (in Auth)
-- php cs - ok
-- sequrity test -ok
-- load test
+ ## php CS testing results 
+ ✓ standard PSR2 - ok
+ 
+ ## sequrity testing results 
+ ✓ VEGA Testing - ok
+- use CSRF TOKEN
+- use crypt cookies
+- use validate all input data
+- use pattern front controller
+- use escape output data (via blade)
+- use different folder for public and script data 
+- need use -  https protocol
+
+## Coverage and cyclomatic complexity
+- testcoverage : 92%
+- max Cyclomatic Complexity of class : 11 (repository)
+- max CRAP (Change Risk Analysis and Predictions): 6 (in App\Http\Middleware\Authenticate)
+
+![alt tag](https://github.com/OnePeople/tasklaravel/blob/master/test-cover-1.png)
+![alt tag](https://github.com/OnePeople/tasklaravel/blob/master/test-cover-2.png)
+![alt tag](https://github.com/OnePeople/tasklaravel/blob/master/test-cover-3.png)
+![alt tag](https://github.com/OnePeople/tasklaravel/blob/master/test-cover-4.png)
+![alt tag](https://github.com/OnePeople/tasklaravel/blob/master/test-cover-5.png)
+
+
+ ### Unit and functional testing results 
+ #### Functional\Auth
+   ✓ Registration page 
+   
+   ✓ Login page 
+   
+   ✓ Redirect if authenticated 
+#### Functional\HomePage
+   ✓ Index page 
+#### Functional\Seeding
+   ✓ Seeding 
+#### Functional\TaskRepository
+   ✓ Create 
+   
+   ✓ Find 
+  
+   ✓ Update 
+  
+   ✓ Delete 
+  
+   ✓ Report by status with data set "cnt_none_zero" 
+  
+   ✓ Report by status with data set "cnt_zero" 
+  
+   ✓ Report count with data set "cnt_null_zero" 
+  
+   ✓ Report count with data set "cnt_zero" 
+#### Functional\Task
+   ✓ Index 
+  
+   ✓ Creating 
+  
+   ✓ Creating incorrect 
+  
+   ✓ Show existing 
+  
+   ✓ Show not existing 
+  
+   ✓ Update 
+  
+   ✓ Delete 
+#### Functional\UserRepository
+   ✓ Create 
+  
+   ✓ Find 
+  
+   ✓ Update 
+  
+   ✓ Delete 
+#### Functional\User
+  
+   ✓ Index 
+  
+   ✓ Creating 
+  
+   ✓ Creating incorrect 
+  
+   ✓ Show existing 
+  
+   ✓ Show not existing 
+  
+   ✓ Update 
+  
+   ✓ Delete 
+#### Unit\Events\CodeStrategy
+  
+   ✓ Code generator with data set #0 
+  
+   ✓ Code generator with data set #1 
+  
+   ✓ Code generator with data set #2 
+    
+   ✓ Code generator with data set #3 
+  
+   ✓ Code generator with data set #4 
+#### Unit\Events\TaskEvent
+   ✓ Task user creator not auth 
+  
+   ✓ Task user creator are auth 
+  
+   ✓ Code generator with data set #0 
+  
+   ✓ Code generator with data set #1 
+  
+   ✓ Code generator with data set #2 
+  
+   ✓ Code generator with data set #3 
+  
+   ✓ Code generator with data set #4 
+#### Unit\Models\TaskStatus
+  
+   ✓ List 
+  
+   ✓ Random 
+  
+   ✓ Default 
+#### Unit\Models\Task
+  
+   ✓ Rules 
+  
+   ✓ Types 
+  
+   ✓ Statuses 
+  
+   ✓ Creator 
+  
+   ✓ Performer 
+#### Unit\Models\TaskType
+  
+   ✓ List 
+  
+   ✓ Random 
+  
+   ✓ Default 
+#### Unit\Models\User
+  
+   ✓ Rules 
